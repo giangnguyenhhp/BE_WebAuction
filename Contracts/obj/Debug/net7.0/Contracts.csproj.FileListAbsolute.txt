@@ -1,0 +1,15 @@
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\bin\Debug\net7.0\Contracts.deps.json
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\bin\Debug\net7.0\Contracts.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\bin\Debug\net7.0\Contracts.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.csproj.AssemblyReference.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.GeneratedMSBuildEditorConfig.editorconfig
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfoInputs.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.AssemblyInfo.cs
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.csproj.CoreCompileInputs.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\refint\Contracts.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\ref\Contracts.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\bin\Debug\net7.0\Entities.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\bin\Debug\net7.0\Entities.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\Contracts\obj\Debug\net7.0\Contracts.csproj.CopyComplete

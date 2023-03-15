@@ -1,0 +1,17 @@
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\LoggingWithSerilog.deps.json
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\LoggingWithSerilog.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\LoggingWithSerilog.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\Contracts.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\Contracts.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.csproj.AssemblyReference.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.GeneratedMSBuildEditorConfig.editorconfig
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.AssemblyInfoInputs.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.AssemblyInfo.cs
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.csproj.CoreCompileInputs.cache
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.csproj.CopyComplete
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\refint\LoggingWithSerilog.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\LoggingWithSerilog.pdb
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\obj\Debug\net7.0\ref\LoggingWithSerilog.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\Entities.dll
+G:\Project_AuctionManagement\BackEnd\Web_Auction\LoggingWithSerilog\bin\Debug\net7.0\Entities.pdb

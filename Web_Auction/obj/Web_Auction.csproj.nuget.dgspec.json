@@ -1,0 +1,475 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Web_Auction\\Web_Auction.csproj": {}
+  },
+  "projects": {
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj",
+        "projectName": "Contracts",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\Entities.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\EmailService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\EmailService.csproj",
+        "projectName": "EmailService",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\EmailService.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[7.0.1, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj",
+        "projectName": "LoggingWithSerilog",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.1-dev-00295, )"
+            },
+            "Serilog.Enrichers.ClientInfo": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.5.0-dev-00370, )"
+            },
+            "Serilog.Sinks.Postgresql.Alternative": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Contracts\\Contracts.csproj"
+              },
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\EmailService.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\EmailService\\EmailService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Web_Auction\\Web_Auction.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Web_Auction\\Web_Auction.csproj",
+        "projectName": "Web_Auction",
+        "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Web_Auction\\Web_Auction.csproj",
+        "packagesPath": "C:\\Users\\vodic\\.nuget\\packages\\",
+        "outputPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Web_Auction\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vodic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\LoggingWithSerilog\\LoggingWithSerilog.csproj"
+              },
+              "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\Repository.csproj": {
+                "projectPath": "G:\\Project_AuctionManagement\\BackEnd\\Web_Auction\\Repository\\Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.TypeScript.MSBuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1-rc, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3-beta1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
