@@ -1,5 +1,4 @@
-﻿using Entities.Identity.AuthenticateRequestModels;
-using Entities.Identity.DataTransferObject;
+﻿using Entities.Identity.DataTransferObject;
 using Entities.Identity.Models;
 using Entities.Identity.RequestModels;
 
@@ -12,7 +11,4 @@ public interface IUserRepository
     public Task<UserDto> UpdateUser(string id, UpdateUserRequest request);
     public Task<AppUser> DeleteUser(string id);
     public Task<UserDto> GetUserById(string id);
-    public Task ForgotPassword(ForgotPasswordRequest request);
-    public Task ResetPassword(ResetPasswordRequest request);
-    public Task<UserDto> RegisterForClient(CreateUserRequest request);
 }

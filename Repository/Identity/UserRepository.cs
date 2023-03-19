@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Contracts.Identity;
-using EmailService.SendMailServices;
 using Entities;
-using Entities.Identity.AuthenticateRequestModels;
 using Entities.Identity.DataTransferObject;
 using Entities.Identity.Models;
 using Entities.Identity.RequestModels;
@@ -17,16 +15,14 @@ public class UserRepository : IUserRepository
     private readonly IMapper _mapper;
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly UserManager<AppUser> _userManager;
-    private readonly IEmailSender _emailSender;
 
     public UserRepository(MasterDbContext context, IMapper mapper, RoleManager<IdentityRole> roleManager,
-        UserManager<AppUser> userManager, IEmailSender emailSender)
+        UserManager<AppUser> userManager)
     {
         _dbContext = context;
         _mapper = mapper;
         _roleManager = roleManager;
         _userManager = userManager;
-        _emailSender = emailSender;
     }
 
     public async Task<IEnumerable<UserDto>> GetAllUsers()
@@ -58,83 +54,9 @@ public class UserRepository : IUserRepository
             .Where(r => r.Name != null && listRoleNames.Contains(r.Name))
             .ToListAsync();
         user.Roles = listRoles;
-
+        
         var usersResult = _mapper.Map<UserDto>(user);
         return usersResult;
-    }
-
-    public async Task ForgotPassword(ForgotPasswordRequest request)
-    {
-        if (request.Email == null) throw new Exception("Email is required");
-        var user = await _userManager.FindByEmailAsync(request.Email);
-        if (user == null)
-        {
-            throw new Exception("User not found");
-        }
-
-        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-        var callBack = $"http://localhost:4200/resetPassword?code={token}&email={request.Email}";
-
-
-        var message = new Message(new[] { user.Email }, "Reset Password Token", callBack);
-        await _emailSender.SendEmailAsync(message);
-    }
-
-    public async Task ResetPassword(ResetPasswordRequest request)
-    {
-        if (request.Email == null) throw new Exception("Email is required");
-        var user = await _userManager.FindByEmailAsync(request.Email);
-        if (user == null)
-        {
-            throw new Exception("User not found");
-        }
-
-        if (request is { Token: { }, Password: { } })
-        {
-            var resetPassResult = await _userManager.ResetPasswordAsync(user, request.Token, request.Password);
-            if (!resetPassResult.Succeeded)
-            {
-                var errors = resetPassResult.Errors.Select(e => e.Description);
-                foreach (var error in errors)
-                {
-                    throw new Exception(error);
-                }
-            }
-        }
-    }
-
-    public async Task<UserDto> RegisterForClient(CreateUserRequest request)
-    {
-        var user = new AppUser();
-        _mapper.Map(request, user);
-        user.Id = Guid.NewGuid().ToString();
-
-        if (_dbContext.Users.Select(x => x.UserName).Contains(request.UserName))
-        {
-            throw new Exception($"User name {request.UserName} already taken");
-        }
-
-        if (request.Password != null)
-        {
-            var result = await _userManager.CreateAsync(user, request.Password);
-
-            if (!result.Succeeded) throw new Exception("Failed to create user");
-        }
-
-        if (!await _roleManager.RoleExistsAsync("User"))
-        {
-            await _roleManager.CreateAsync(new IdentityRole(roleName: "User"));
-        }
-
-        if (await _roleManager.RoleExistsAsync("User"))
-        {
-            await _userManager.AddToRolesAsync(user, new[] { "User" });
-        }
-        
-        await _dbContext.SaveChangesAsync();
-
-        var userResult = _mapper.Map<UserDto>(user);
-        return await Task.FromResult(userResult);
     }
 
     public async Task<UserDto?> CreateNewUserForAdmin(CreateUserRequest request)

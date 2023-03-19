@@ -45,6 +45,13 @@ public class WeatherForecastController : ControllerBase
 
         return Task.FromResult<IActionResult>(Ok(response));
     }
+    
+    [HttpGet("sendSms")]
+    public async Task<IActionResult> SendSmsAsync()
+    {
+        await _emailSender.SendSmsAsync("0909261293", "Test send Sms");
+        return Ok();
+    }
 
     [HttpPost("sendEmail")]
     public async Task<IActionResult> SendEmailAsync()
@@ -62,10 +69,5 @@ public class WeatherForecastController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("sendSms")]
-    public async Task<IActionResult> SendSmsAsync()
-    {
-        await _emailSender.SendSmsAsync("0909261293", "Test send Sms");
-        return Ok();
-    }
+
 }

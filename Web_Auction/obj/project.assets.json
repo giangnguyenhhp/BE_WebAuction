@@ -3752,7 +3752,8 @@
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Contracts": "1.0.0",
-          "EmailService": "1.0.0"
+          "EmailService": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.4"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -10445,7 +10446,6 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "LoggingWithSerilog >= 1.0.0",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.4",
       "Microsoft.AspNetCore.OpenApi >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
       "Microsoft.TypeScript.MSBuild >= 5.0.1-rc",
@@ -10505,10 +10505,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Authentication.JwtBearer": {
-            "target": "Package",
-            "version": "[7.0.4, )"
-          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[7.0.3, )"

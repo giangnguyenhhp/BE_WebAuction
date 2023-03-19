@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Contracts.Identity;
+using Contracts.Models;
 using EmailService.SendMailServices;
 using Entities;
 using Entities.Identity.Models;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NpgsqlTypes;
 using Repository.Identity;
+using Repository.Models;
 using Serilog;
 using Serilog.Sinks.PostgreSQL;
 using Serilog.Sinks.PostgreSQL.ColumnWriters;
@@ -65,6 +67,8 @@ public static class CustomConfigService
     {
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IAuthenticateRepository,AuthenticateRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
     }
 
     /// <summary>
@@ -156,7 +160,7 @@ public static class CustomConfigService
             {
                 options.User.RequireUniqueEmail = true;
                 options.Lockout.AllowedForNewUsers = false;
-                // options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
                 // options.SignIn.RequireConfirmedPhoneNumber = true;
             }).AddEntityFrameworkStores<MasterDbContext>()
             .AddDefaultTokenProviders();

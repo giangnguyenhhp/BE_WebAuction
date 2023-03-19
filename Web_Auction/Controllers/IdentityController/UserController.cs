@@ -1,6 +1,5 @@
 ﻿using Contracts.Identity;
 using Entities;
-using Entities.Identity.AuthenticateRequestModels;
 using Entities.Identity.RequestModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +40,7 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize]
     public async Task<IActionResult> GetUserById(string id)
     {
         try
@@ -59,6 +59,8 @@ public class UserController : ControllerBase
            });
         }
     }
+
+    
 
     [HttpPost("register-for-admin")]
     public async Task<IActionResult> CreateUserForAdmin([FromBody] CreateUserRequest request)
@@ -81,70 +83,8 @@ public class UserController : ControllerBase
         }
     }
     
-    [HttpPost("register-for-client")]
-    public async Task<IActionResult> RegisterForClient([FromBody] CreateUserRequest request)
-    {
-        try
-        {
-            if(!ModelState.IsValid) throw new Exception("User information is not valid");
-            var user = await _repository.RegisterForClient(request);
-            _logger.LogDebug("User created successfully");
-            return Ok(user);
-        }
-        catch (Exception e)
-        {
-            _logger.LogError("Something went wrong inside RegisterForClient action : {Message}", e.Message);
-            return StatusCode(500, new Response()
-            {
-                Title = "Internal Server Error",
-                Message = e.Message
-            });
-        }
-    }
 
-    [HttpPost("forgot-password")]
-    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
-    {
-        try
-        {
-            if (!ModelState.IsValid) return BadRequest();
-            await _repository.ForgotPassword(request);
-            return Ok();
-        }
-        catch (Exception e)
-        {
-            _logger.LogError("Something went wrong inside ForgotPassword action : {Message}", e.Message);
-            return StatusCode(500, new Response()
-            {
-                Title = "Internal Server Error",
-                Message = e.Message
-            });
-        }
-    }
-
-    [HttpPost("reset-password")]
-    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
-    {
-        try
-        {
-            if (!ModelState.IsValid) return BadRequest();
-            await _repository.ResetPassword(request);
-            _logger.LogDebug("User reset password successful");
-            return Ok();
-        }
-        catch (Exception e)
-        {
-            _logger.LogError("Something went wrong inside ResetPassword action : {Message}", e.Message);
-            return StatusCode(500, new Response()
-            {
-                Title = "Internal Server Error",
-                Message = e.Message
-            });
-        }
-    }
     
-    
-
     [HttpPut("update/{id}")]
     public async Task<IActionResult> UpdateUser(string id, [FromBody] UpdateUserRequest request)
     {

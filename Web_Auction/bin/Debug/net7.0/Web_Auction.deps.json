@@ -9,7 +9,6 @@
       "Web_Auction/1.0.0": {
         "dependencies": {
           "LoggingWithSerilog": "1.0.0",
-          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.4",
           "Microsoft.AspNetCore.OpenApi": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "7.0.3",
           "Microsoft.TypeScript.MSBuild": "5.0.1-rc",
@@ -1906,7 +1905,8 @@
       "Repository/1.0.0": {
         "dependencies": {
           "Contracts": "1.0.0",
-          "EmailService": "1.0.0"
+          "EmailService": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.4"
         },
         "runtime": {
           "Repository.dll": {}
