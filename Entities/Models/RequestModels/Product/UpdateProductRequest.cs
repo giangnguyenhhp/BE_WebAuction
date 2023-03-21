@@ -12,4 +12,6 @@ public class UpdateProductRequest
     public string? Description { get; set; }
 
     public bool IsApproved { get; set; }
+
+    public Guid? CategoryId { get; set; }
 }

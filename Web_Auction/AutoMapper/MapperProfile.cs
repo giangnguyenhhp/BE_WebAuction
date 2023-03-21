@@ -23,5 +23,7 @@ public class MapperProfile : Profile
         CreateMap<CreateProductRequest, Product>();
         CreateMap<Product, ProductDto>();
         CreateMap<UpdateProductRequest, Product>();
+
+        CreateMap<Category, CategoryDto>();
     }
 }

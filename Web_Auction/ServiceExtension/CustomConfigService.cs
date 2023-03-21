@@ -69,6 +69,7 @@ public static class CustomConfigService
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAuthenticateRepository,AuthenticateRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
     }
 
     /// <summary>

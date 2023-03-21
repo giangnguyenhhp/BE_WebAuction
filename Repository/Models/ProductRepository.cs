@@ -22,9 +22,16 @@ public class ProductRepository : IProductRepository
 
     public async Task<ProductDto> CreateNewProductAsync(CreateProductRequest request)
     {
+        var category = await _dbContext.Categories.FirstOrDefaultAsync(c => c.CategoryId == request.CategoryId);
+        if (category == null)
+        {
+            throw new Exception("Category not found.");
+        }
+
         var product = new Product();
         _mapper.Map(request, product);
         product.ProductId = Guid.NewGuid();
+        product.Category = category;
 
         await _dbContext.Products.AddAsync(product);
         await _dbContext.SaveChangesAsync();
@@ -35,14 +42,17 @@ public class ProductRepository : IProductRepository
 
     public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
     {
-        var products = await _dbContext.Products.OrderBy(p => p.IsApproved).ToListAsync();
+        var products = await _dbContext.Products.OrderBy(p => p.IsApproved)
+            .Include(p => p.Category)
+            .ToListAsync();
         var result = _mapper.Map<IEnumerable<ProductDto>>(products);
         return result;
     }
 
     public async Task<ProductDto> GetProductByIdAsync(Guid id)
     {
-        var product = await _dbContext.Products.FirstOrDefaultAsync(p => p.ProductId == id);
+        var product = await _dbContext.Products.Include(p => p.Category)
+            .FirstOrDefaultAsync(p => p.ProductId == id);
         if (product == null)
         {
             throw new Exception("Product not found.");
@@ -60,7 +70,14 @@ public class ProductRepository : IProductRepository
             throw new Exception("Product not found.");
         }
 
+        var category = await _dbContext.Categories.FirstOrDefaultAsync(c => c.CategoryId == request.CategoryId);
+        if (category == null)
+        {
+            throw new Exception("Category not found.");
+        }
+
         _mapper.Map(request, product);
+        product.Category = category;
 
         await _dbContext.SaveChangesAsync();
         var result = _mapper.Map<ProductDto>(product);

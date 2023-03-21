@@ -12,5 +12,7 @@ public class CreateProductRequest
     [Required(ErrorMessage = "Yêu cầu nhập thông tin sản phẩm")]
     public string? Description { get; set; }
 
-    public bool IsApproved { get; set; }
+    public bool? IsApproved { get; set; }
+
+    public Guid? CategoryId { get; set; }
 }
