@@ -65,11 +65,19 @@ public static class CustomConfigService
     /// <param name="services"></param>
     public static void ConfigureRepositoryService(this IServiceCollection services)
     {
+        //Add HttpContextAccessor cho repository service để lấy dữ liệu user principal
+        services.AddHttpContextAccessor();
+        
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IAuthenticateRepository,AuthenticateRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<ILotProductRepository, LotProductRepository>();
+        services.AddScoped<ICommentRepository, CommentRepository>();
+        services.AddScoped<ICardMemberRepository, CardMemberRepository>();
+        services.AddScoped<IContactRepository,ContactRepository>();
+        services.AddScoped<IPostRepository,PostRepository>();
     }
 
     /// <summary>

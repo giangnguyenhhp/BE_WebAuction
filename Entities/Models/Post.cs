@@ -16,9 +16,9 @@ public class Post
 
     public string? Content { get; set; }
 
-    public DateTime DateCreated { get; set; }
+    public DateTime? DateCreated { get; set; }
 
-    public DateTime DateUpdated { get; set; }
+    public DateTime? DateUpdated { get; set; }
 
     public AppUser? User { get; set; }
 }

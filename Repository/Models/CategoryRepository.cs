@@ -47,7 +47,6 @@ public class CategoryRepository : ICategoryRepository
         }
         var category = new Category()
         {
-            CategoryId = Guid.NewGuid(),
             CategoryName = request.CategoryName,
             Description = request.Description
         };

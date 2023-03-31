@@ -17,5 +17,5 @@ public class Contact
 
     public string? PhoneNumber { get; set; }
 
-    public DateTime DateSent { get; set; }
+    public DateTime? DateSent { get; set; }
 }

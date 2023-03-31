@@ -10,13 +10,17 @@ public class LotProduct
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid LotProductId { get; set; }
 
-    public double PriceLotOpen { get; set; }
+    public double? PriceLotOpen { get; set; }
+    
+    public DateTime? TimeStarted { get; set; }
 
-    public double PriceLotOffer { get; set; }
-
+    public DateTime? TimeEnded { get; set; }
+    
+    [NotMapped] public double? PriceOfferMax { get; set; }
+    
     public List<Product>? Products { get; set; }
 
-    public List<AppUser>? Users { get; set; }
+    // public List<AppUser>? Users { get; set; }
 
-    public AuctionInformation? AuctionInformation { get; set; }
+    public List<BidInformation>? BidInformation { get; set; }
 }

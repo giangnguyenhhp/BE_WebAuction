@@ -1,4 +1,7 @@
-﻿namespace Entities.Models.DataTransferObject;
+﻿using Entities.Identity.DataTransferObject;
+using Entities.Identity.Models;
+
+namespace Entities.Models.DataTransferObject;
 
 public class ProductDto
 {
@@ -12,4 +15,6 @@ public class ProductDto
     public bool IsApproved { get; set; }
 
     public CategoryDto? Category { get; set; }
+    
+    public UserDto? User { get; set; }
 }

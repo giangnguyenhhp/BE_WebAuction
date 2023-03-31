@@ -64,6 +64,9 @@ builder.Services.AddSwaggerGen(opt =>
 
 var app = builder.Build();
 
+//Fix saving datetime in postgres database
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

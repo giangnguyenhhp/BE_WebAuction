@@ -22,21 +22,6 @@ namespace Web_Auction.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AppUserLotProduct", b =>
-                {
-                    b.Property<Guid>("LotProductsLotProductId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("text");
-
-                    b.HasKey("LotProductsLotProductId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("AppUserLotProduct");
-                });
-
             modelBuilder.Entity("Entities.Identity.Models.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -104,30 +89,28 @@ namespace Web_Auction.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Models.AuctionInformation", b =>
+            modelBuilder.Entity("Entities.Models.BidInformation", b =>
                 {
-                    b.Property<Guid>("AuctionId")
+                    b.Property<Guid>("BidId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("AuctionName")
+                    b.Property<string>("AppUserId")
                         .HasColumnType("text");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
+                    b.Property<Guid?>("LotProductId")
+                        .HasColumnType("uuid");
 
-                    b.Property<DateTime>("TimeEnded")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<double?>("PriceLotOffer")
+                        .HasColumnType("double precision");
 
-                    b.Property<DateTime>("TimeRemaining")
-                        .HasColumnType("timestamp with time zone");
+                    b.HasKey("BidId");
 
-                    b.Property<DateTime>("TimeStarted")
-                        .HasColumnType("timestamp with time zone");
+                    b.HasIndex("AppUserId");
 
-                    b.HasKey("AuctionId");
+                    b.HasIndex("LotProductId");
 
-                    b.ToTable("AuctionInformationS");
+                    b.ToTable("BidInformation");
                 });
 
             modelBuilder.Entity("Entities.Models.CardMember", b =>
@@ -201,7 +184,7 @@ namespace Web_Auction.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("DateSent")
+                    b.Property<DateTime?>("DateSent")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
@@ -227,18 +210,16 @@ namespace Web_Auction.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("AuctionInformationAuctionId")
-                        .HasColumnType("uuid");
-
-                    b.Property<double>("PriceLotOffer")
+                    b.Property<double?>("PriceLotOpen")
                         .HasColumnType("double precision");
 
-                    b.Property<double>("PriceLotOpen")
-                        .HasColumnType("double precision");
+                    b.Property<DateTime?>("TimeEnded")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("TimeStarted")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("LotProductId");
-
-                    b.HasIndex("AuctionInformationAuctionId");
 
                     b.ToTable("LotProducts");
                 });
@@ -252,10 +233,10 @@ namespace Web_Auction.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DateUpdated")
+                    b.Property<DateTime?>("DateUpdated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
@@ -286,13 +267,13 @@ namespace Web_Auction.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<bool>("IsApproved")
+                    b.Property<bool?>("IsApproved")
                         .HasColumnType("boolean");
 
                     b.Property<Guid?>("LotProductId")
                         .HasColumnType("uuid");
 
-                    b.Property<double>("PriceOpen")
+                    b.Property<double?>("PriceOpen")
                         .HasColumnType("double precision");
 
                     b.Property<string>("ProductName")
@@ -464,19 +445,19 @@ namespace Web_Auction.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("AppUserLotProduct", b =>
+            modelBuilder.Entity("Entities.Models.BidInformation", b =>
                 {
-                    b.HasOne("Entities.Models.LotProduct", null)
-                        .WithMany()
-                        .HasForeignKey("LotProductsLotProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Entities.Identity.Models.AppUser", "AppUser")
+                        .WithMany("BidInformationS")
+                        .HasForeignKey("AppUserId");
 
-                    b.HasOne("Entities.Identity.Models.AppUser", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Entities.Models.LotProduct", "LotProduct")
+                        .WithMany("BidInformation")
+                        .HasForeignKey("LotProductId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("LotProduct");
                 });
 
             modelBuilder.Entity("Entities.Models.CardMember", b =>
@@ -495,15 +476,6 @@ namespace Web_Auction.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Entities.Models.LotProduct", b =>
-                {
-                    b.HasOne("Entities.Models.AuctionInformation", "AuctionInformation")
-                        .WithMany("LotProducts")
-                        .HasForeignKey("AuctionInformationAuctionId");
-
-                    b.Navigation("AuctionInformation");
                 });
 
             modelBuilder.Entity("Entities.Models.Post", b =>
@@ -526,7 +498,7 @@ namespace Web_Auction.Migrations
                         .HasForeignKey("LotProductId");
 
                     b.HasOne("Entities.Identity.Models.AppUser", "User")
-                        .WithMany("Products")
+                        .WithMany("ProductsSold")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Category");
@@ -598,16 +570,13 @@ namespace Web_Auction.Migrations
 
             modelBuilder.Entity("Entities.Identity.Models.AppUser", b =>
                 {
+                    b.Navigation("BidInformationS");
+
                     b.Navigation("CardMember");
 
                     b.Navigation("Comments");
 
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Entities.Models.AuctionInformation", b =>
-                {
-                    b.Navigation("LotProducts");
+                    b.Navigation("ProductsSold");
                 });
 
             modelBuilder.Entity("Entities.Models.Category", b =>
@@ -617,6 +586,8 @@ namespace Web_Auction.Migrations
 
             modelBuilder.Entity("Entities.Models.LotProduct", b =>
                 {
+                    b.Navigation("BidInformation");
+
                     b.Navigation("Products");
                 });
 

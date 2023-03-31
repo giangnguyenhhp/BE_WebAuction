@@ -4,6 +4,8 @@ using Entities.Identity.Models;
 using Entities.Identity.RequestModels;
 using Entities.Models;
 using Entities.Models.DataTransferObject;
+using Entities.Models.RequestModels.CardMember;
+using Entities.Models.RequestModels.Post;
 using Entities.Models.RequestModels.Product;
 using Microsoft.AspNetCore.Identity;
 
@@ -20,10 +22,24 @@ public class MapperProfile : Profile
         CreateMap<CreateUserRequest, AppUser>();
         CreateMap<UpdateUserRequest, AppUser>();
         
-        CreateMap<CreateProductRequest, Product>();
         CreateMap<Product, ProductDto>();
+        CreateMap<CreateProductRequest, Product>();
         CreateMap<UpdateProductRequest, Product>();
 
         CreateMap<Category, CategoryDto>();
+
+        CreateMap<LotProduct, LotProductDto>();
+
+        CreateMap<Comment, CommentDto>();
+
+        CreateMap<CardMember, CardMemberDto>();
+        CreateMap<CreateCardMemberRequest, CardMember>();
+        CreateMap<UpdateCardMemberRequest, CardMember>();
+
+        CreateMap<Contact, ContactDto>();
+
+        CreateMap<Post, PostDto>();
+        CreateMap<CreatePostRequest, Post>();
+        CreateMap<UpdatePostRequest, Post>();
     }
 }

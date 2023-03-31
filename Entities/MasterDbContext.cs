@@ -35,7 +35,7 @@ public class MasterDbContext : IdentityDbContext<AppUser>
             .HasForeignKey<CardMember>(c => c.UserId);
     }
 
-    public DbSet<AuctionInformation> AuctionInformationS { get; set; }
+    public DbSet<BidInformation> BidInformation { get; set; }
 
     public DbSet<CardMember> CardMembers { get; set; }
 

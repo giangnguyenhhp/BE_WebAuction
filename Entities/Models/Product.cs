@@ -13,11 +13,11 @@ public class Product
     [Required]
     public string? ProductName { get; set; }
 
-    public double PriceOpen { get; set; }
+    public double? PriceOpen { get; set; }
 
     public string? Description { get; set; }
 
-    public bool IsApproved { get; set; }
+    public bool? IsApproved { get; set; }
 
     public LotProduct? LotProduct { get; set; }
 
