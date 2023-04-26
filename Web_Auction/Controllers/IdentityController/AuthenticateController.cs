@@ -34,7 +34,7 @@ public class AuthenticateController : ControllerBase
     
 
     [HttpGet("privacy")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetPrivacy()
     {
         try

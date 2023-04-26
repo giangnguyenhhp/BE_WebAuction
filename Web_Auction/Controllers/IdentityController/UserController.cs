@@ -114,7 +114,11 @@ public class UserController : ControllerBase
         {
             await _repository.DeleteUser(id);
             _logger.LogDebug("User id {Id} deleted successfully", id);
-            return Ok("Deleted successfully");
+            return Ok(new Response()
+            {
+                Title = "Success",
+                Message = "User deleted successfully"
+            });
         }
         catch (Exception e)
         {

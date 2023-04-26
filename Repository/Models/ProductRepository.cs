@@ -77,6 +77,8 @@ public class ProductRepository :ControllerBase,IProductRepository
     public async Task<ProductDto> GetProductByIdAsync(Guid id)
     {
         var product = await _dbContext.Products.Include(p => p.Category)
+            .Include(p=>p.ProductPhotos)
+            .Include(p=>p.User)
             .FirstOrDefaultAsync(p => p.ProductId == id);
         if (product == null)
         {

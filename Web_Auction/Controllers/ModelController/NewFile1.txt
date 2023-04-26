@@ -1,0 +1,24 @@
+﻿            var formCollection = await Request.ReadFormAsync();
+            var files = formCollection.Files;
+            var folderName = Path.Combine("Resources", "Product");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+            if (files.Any(f => f.Length <= 0))
+                return BadRequest(new Response()
+                {
+                    Title = "Invalid Upload",
+                    Message = "No files found"
+                });
+                
+            foreach (var file in files)
+            {
+                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName?.Trim('"');
+                if (_dbContext.ProductPhotos.Select(x => x.FileName).Contains(fileName))
+                {
+                    throw new Exception("FileName already exists.");
+                }
+
+                var fullPath = Path.Combine(pathToSave, fileName);
+                await using var stream = new FileStream(fullPath, FileMode.Create);
+                await file.CopyToAsync(stream);
+            }

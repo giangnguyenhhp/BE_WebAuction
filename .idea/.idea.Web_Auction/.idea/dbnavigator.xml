@@ -13,7 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e">
-      <console name="WebAuctionServer" type="STANDARD" schema="public" session="Main"><![CDATA[select * from "Products"]]></console>
+      <console name="WebAuctionServer" type="STANDARD" schema="WebAuctionServer" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -21,6 +21,14 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.Users" active-filter-id="" />
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.Products" active-filter-id="" />
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.UserTokens" active-filter-id="" />
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.__EFMigrationsHistory" active-filter-id="" />
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.Roles" active-filter-id="" />
+    <filter-actions connection-id="cc186bdc-6fea-4c4b-8c66-6bc6cac7531e" dataset="public.BidInformation" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />

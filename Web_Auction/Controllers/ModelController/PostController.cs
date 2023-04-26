@@ -105,7 +105,11 @@ public class PostController : ControllerBase
         {
             await _repository.DeletePost(id);
             _logger.LogDebug("Post has id : {Id} deleted",id);
-            return Ok("Post has been deleted");
+            return Ok(new Response()
+            {
+                Title = "Success",
+                Message = "Post has been deleted"
+            });
         }
         catch (Exception e)
         {

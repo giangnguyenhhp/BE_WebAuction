@@ -78,6 +78,8 @@ public static class CustomConfigService
         services.AddScoped<ICardMemberRepository, CardMemberRepository>();
         services.AddScoped<IContactRepository,ContactRepository>();
         services.AddScoped<IPostRepository,PostRepository>();
+        services.AddScoped<IProductPhotoRepository,ProductPhotoRepository>();
+        services.AddScoped<IBidInformationRepository, BidInformationRepository>();
     }
 
     /// <summary>

@@ -1,4 +1,6 @@
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Web_Auction.Hubs;
@@ -27,6 +29,14 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 //Add Authentication
 builder.Services.AddingAuthentication(builder.Configuration);
+
+//Config FormOptions
+builder.Services.Configure<FormOptions>(o =>
+{
+    o.ValueLengthLimit = int.MaxValue;
+    o.MultipartBodyLengthLimit = int.MaxValue;
+    o.MemoryBufferThreshold = int.MaxValue;
+});
 
 builder.Services.AddControllers().AddJsonOptions(x =>
     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -76,6 +86,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),@"Resources")),
+    RequestPath = new PathString("/Resources")
+});
 
 app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
 

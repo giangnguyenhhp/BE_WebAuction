@@ -12,7 +12,7 @@ public class LotProductDto
 
     public DateTime? TimeRemaining { get; set; }
 
-    public double? PriceMax { get; set; }
+    public double? PriceOfferMax { get; set; }
 
     public List<ProductDto>? Products { get; set; }
 }

@@ -23,12 +23,16 @@ public class LotProductRepository : ILotProductRepository
     {
         var lotProducts = await _dbContext.LotProducts
             .Include(x => x.Products).ToListAsync();
-         
+
         foreach (var lotProduct in lotProducts)
         {
-           var priceMax = _dbContext.BidInformation.Where(x => x.LotProduct.LotProductId == lotProduct.LotProductId)
-                .Max(x => x.PriceLotOffer);
-           lotProduct.PriceOfferMax = priceMax;
+            var priceMax =await _dbContext.BidInformation.Where(x => x.LotProduct.LotProductId == lotProduct.LotProductId)
+                .Select(x=>x.PriceLotOffer)
+                .MaxAsync();
+            lotProduct.PriceOfferMax = priceMax;
+            lotProduct.PriceLotOpen = _dbContext.Products
+                .Where(x => x.LotProduct.LotProductId == lotProduct.LotProductId)
+                .Sum(product => product.PriceOpen);
         }
 
         var result = _mapper.Map<IEnumerable<LotProductDto>>(lotProducts);
@@ -37,7 +41,6 @@ public class LotProductRepository : ILotProductRepository
 
     public async Task<LotProductDto> CreateLotProductAsync(CreateLotProductRequest request)
     {
-
         var products = await _dbContext.Products.Where(x =>
             request.ProductIds != null && request.ProductIds.Contains(x.ProductId.ToString())).ToListAsync();
         var priceOpen = products.Sum(product => product.PriceOpen);
@@ -59,7 +62,7 @@ public class LotProductRepository : ILotProductRepository
     public async Task UpdateLotProductAsync(Guid id, UpdateLotProductRequest request)
     {
         var lotProduct = await _dbContext.LotProducts
-            .Include(x=>x.Products).FirstOrDefaultAsync(x => x.LotProductId == id);
+            .Include(x => x.Products).FirstOrDefaultAsync(x => x.LotProductId == id);
         if (lotProduct == null)
         {
             throw new Exception("LotProduct not found");
@@ -80,7 +83,7 @@ public class LotProductRepository : ILotProductRepository
     public async Task DeleteLotProductAsync(Guid id)
     {
         var lotProduct = await _dbContext.LotProducts
-            .Include(x=>x.Products)
+            .Include(x => x.Products)
             .FirstOrDefaultAsync(x => x.LotProductId == id);
         if (lotProduct == null)
         {
@@ -98,7 +101,7 @@ public class LotProductRepository : ILotProductRepository
         {
             throw new Exception("LotProduct not found");
         }
-        
+
         var result = _mapper.Map<LotProductDto>(lotProduct);
         return result;
     }

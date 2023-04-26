@@ -41,5 +41,9 @@ public class MapperProfile : Profile
         CreateMap<Post, PostDto>();
         CreateMap<CreatePostRequest, Post>();
         CreateMap<UpdatePostRequest, Post>();
+
+        CreateMap<ProductPhoto, ProductPhotoDto>();
+
+        CreateMap<BidInformation, BidInformationDto>();
     }
 }

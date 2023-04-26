@@ -17,4 +17,6 @@ public class ProductDto
     public CategoryDto? Category { get; set; }
     
     public UserDto? User { get; set; }
+    
+    public List<ProductPhotoDto>? ProductPhotos { get; set; }
 }

@@ -18,7 +18,8 @@ public class PostRepository : IPostRepository
     private readonly IHttpContextAccessor _http;
     private readonly UserManager<AppUser> _userManager;
 
-    public PostRepository(MasterDbContext dbContext, IMapper mapper, IHttpContextAccessor http, UserManager<AppUser> userManager)
+    public PostRepository(MasterDbContext dbContext, IMapper mapper, IHttpContextAccessor http,
+        UserManager<AppUser> userManager)
     {
         _dbContext = dbContext;
         _mapper = mapper;
@@ -28,7 +29,7 @@ public class PostRepository : IPostRepository
 
     public async Task<List<PostDto>> GetAllPosts()
     {
-        var listPosts = await _dbContext.Posts.Include(x=>x.User).ToListAsync();
+        var listPosts = await _dbContext.Posts.Include(x => x.User).ToListAsync();
 
         var result = _mapper.Map<List<PostDto>>(listPosts);
         return result;
@@ -43,7 +44,7 @@ public class PostRepository : IPostRepository
         {
             throw new Exception("User not found.");
         }
-        
+
         var post = _mapper.Map<Post>(request);
         post.DateCreated = DateTime.Now;
         post.DateUpdated = post.DateCreated;
@@ -58,7 +59,7 @@ public class PostRepository : IPostRepository
 
     public async Task<PostDto> UpdatePost(string id, UpdatePostRequest request)
     {
-        var post = await _dbContext.Posts.Include(x=>x.User)
+        var post = await _dbContext.Posts.Include(x => x.User)
             .FirstOrDefaultAsync(x => x.PostId.ToString() == id);
         if (post == null)
         {
@@ -68,32 +69,32 @@ public class PostRepository : IPostRepository
         _mapper.Map(request, post);
         post.DateUpdated = DateTime.Now;
         await _dbContext.SaveChangesAsync();
-        
+
         var result = _mapper.Map<PostDto>(post);
         return result;
     }
 
     public async Task DeletePost(string id)
     {
-        var post = _dbContext.Posts.FirstOrDefault(x => x.PostId.ToString() == id);
+        var post = await _dbContext.Posts.FirstOrDefaultAsync(x => x.PostId.ToString() == id);
         if (post == null)
         {
             throw new Exception("Post not found.");
         }
-        
+
         _dbContext.Posts.Remove(post);
         await _dbContext.SaveChangesAsync();
     }
 
     public async Task<PostDto> GetPostsById(string id)
     {
-        var post =await _dbContext.Posts.Include(x=>x.User)
+        var post = await _dbContext.Posts.Include(x => x.User)
             .FirstOrDefaultAsync(x => x.PostId.ToString() == id);
         if (post == null)
         {
             throw new Exception("Post not found.");
         }
-        
+
         var result = _mapper.Map<PostDto>(post);
         return result;
     }
